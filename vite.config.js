@@ -6,12 +6,33 @@ export default defineConfig({
   server: {
     port: 3500,
     host: true,
-    strictPort: true, // This will fail if port 3500 is already in use
     proxy: {
       "/api": {
         target: "http://localhost:5000",
         changeOrigin: true,
+        secure: false,
+        configure: (proxy, _options) => {
+          proxy.on("error", (err, _req, _res) => {
+            console.log("proxy error", err);
+          });
+          proxy.on("proxyReq", (proxyReq, req, _res) => {
+            console.log("Sending Request to the Target:", req.method, req.url);
+          });
+          proxy.on("proxyRes", (proxyRes, req, _res) => {
+            console.log(
+              "Received Response from the Target:",
+              proxyRes.statusCode,
+              req.url,
+            );
+          });
+        },
       },
     },
+  },
+  define: {
+    // Make environment variables available
+    "process.env.NODE_ENV": JSON.stringify(
+      process.env.NODE_ENV || "development",
+    ),
   },
 });
