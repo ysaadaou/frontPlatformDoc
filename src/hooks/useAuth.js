@@ -3,6 +3,19 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+// For development, use proxy. For production, use environment variable
+const API_BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? process.env.REACT_APP_API_URL ||
+      "https://back-platform-doc-gd5d.vercel.app"
+    : ""; // Empty string uses the proxy in development
+
+// Configure axios with base URL
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  timeout: 10000,
+});
+
 export const useAuth = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
@@ -20,7 +33,7 @@ export const useAuth = () => {
         return;
       }
 
-      const response = await axios.get("/api/auth/verify", {
+      const response = await api.get("/api/auth/verify", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -41,7 +54,7 @@ export const useAuth = () => {
 
   const login = async (credentials) => {
     try {
-      const response = await axios.post("/api/auth/login", credentials);
+      const response = await api.post("/api/auth/login", credentials);
 
       if (response.data.success) {
         localStorage.setItem("token", response.data.token);

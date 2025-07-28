@@ -3,6 +3,18 @@
 import { useState } from "react"
 import axios from "axios"
 
+// For development, use proxy. For production, use environment variable
+const API_BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? process.env.REACT_APP_API_URL || "https://back-platform-doc-gd5d.vercel.app"
+    : "" // Empty string uses the proxy in development
+
+// Configure axios with base URL
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  timeout: 10000,
+})
+
 const CertificateSection = ({ userData }) => {
   const [downloading, setDownloading] = useState(false)
   const [downloadMessage, setDownloadMessage] = useState("")
@@ -31,7 +43,7 @@ const CertificateSection = ({ userData }) => {
         setDownloadMessage("Certificat ouvert dans un nouvel onglet!")
 
         // Mark as downloaded
-        await axios.post(
+        await api.post(
           "/api/certificate/mark-downloaded",
           { studentId: userData._id },
           {
@@ -40,7 +52,7 @@ const CertificateSection = ({ userData }) => {
         )
       } else {
         // Fallback to PDF generation
-        const response = await axios.post(
+        const response = await api.post(
           "/api/certificate/download",
           { studentId: userData._id },
           {
