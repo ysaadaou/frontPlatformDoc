@@ -8,7 +8,7 @@ export default defineConfig({
     host: true,
     proxy: {
       "/api": {
-        target: "http://localhost:5000",
+        target: "https://back-platform-doc.vercel.app/",
         changeOrigin: true,
         secure: false,
         configure: (proxy, _options) => {

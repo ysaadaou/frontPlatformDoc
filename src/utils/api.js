@@ -13,7 +13,7 @@ const getApiBaseUrl = () => {
   }
 
   // Production API URL - replace with your actual Vercel backend URL
-  return "https://back-platform-doc-gd5d.vercel.app/api";
+  return "https://back-platform-doc.vercel.app";
 };
 
 // Create axios instance with default config
