@@ -42,7 +42,7 @@ const CertificateSection = ({ userData }) => {
 
         // Mark as downloaded
         const res = await api.post(
-          "/api/certificate/mark-downloaded",
+          "certificate/mark-downloaded",
           { studentId: userData._id },
           {
             headers: { Authorization: `Bearer ${token}` },
@@ -52,7 +52,7 @@ const CertificateSection = ({ userData }) => {
       } else {
         // Fallback to PDF generation
         const response = await api.post(
-          "/api/certificate/download",
+          "certificate/download",
           { studentId: userData._id },
           {
             headers: { Authorization: `Bearer ${token}` },
