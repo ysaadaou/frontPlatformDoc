@@ -44,13 +44,14 @@ const CertificateSection = ({ userData }) => {
         setDownloadMessage("Certificat ouvert dans un nouvel onglet!")
 
         // Mark as downloaded
-        await api.post(
+        const res = await api.post(
           "/api/certificate/mark-downloaded",
           { studentId: userData._id },
           {
             headers: { Authorization: `Bearer ${token}` },
           },
         )
+        console.log(res);
       } else {
         // Fallback to PDF generation
         const response = await api.post(
