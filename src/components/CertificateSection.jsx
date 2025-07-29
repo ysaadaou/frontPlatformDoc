@@ -62,15 +62,15 @@ const CertificateSection = ({ userData }) => {
         )
 
         // Create download link
-        const url = window.URL.createObjectURL(new Blob([response.data]))
-        const link = document.createElement("a")
-        link.href = url
-        link.setAttribute("download", `certificat_${userData.cin}.pdf`)
-        document.body.appendChild(link)
-        link.click()
-        link.remove()
-        window.URL.revokeObjectURL(url)
-
+        //const url = window.URL.createObjectURL(new Blob([response.data]))
+        //const link = document.createElement("a")
+        //link.href = url
+        //link.setAttribute("download", `certificat_${userData.cin}.pdf`)
+        //document.body.appendChild(link)
+        //link.click()
+        //link.remove()
+        //window.URL.revokeObjectURL(url)
+        //
         setDownloadMessage("Certificat téléchargé avec succès!")
       }
     } catch (error) {
