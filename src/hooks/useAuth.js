@@ -4,7 +4,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 // For development, use proxy. For production, use environment variable
-const API_BASE_URL = "https://back-platform-doc.vercel.app";
+//const API_BASE_URL = "https://back-platform-doc.vercel.app";
+
+const API_BASE_URL = "https://back-platform-doc-re1c.vercel.app";
 
 // Configure axios with base URL
 const api = axios.create({
