@@ -5,21 +5,21 @@ const StudentInfo = ({ userData }) => {
       value: `${userData.prenom} ${userData.nom}`,
       icon: '👤'
     },
-    {
-      label: 'Email',
-      value: userData.email,
-      icon: '📧'
-    },
+    //{
+    //  label: 'Email',
+    //  value: userData.email,
+    //  icon: '📧'
+    //},
     {
       label: 'CIN',
       value: userData.cin,
       icon: '🆔'
     },
-    {
-      label: 'Téléphone',
-      value: userData.telephone,
-      icon: '📱'
-    },
+    //{
+    //  label: 'Téléphone',
+    //  value: userData.telephone,
+    //  icon: '📱'
+    //},
     {
       label: 'Faculté',
       value: userData.faculte,
