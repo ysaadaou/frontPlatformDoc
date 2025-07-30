@@ -32,14 +32,6 @@ const SessionCard = ({ session }) => {
           >
             Date: {session.date}
           </p>
-          <p
-            style={{
-              color: "#666",
-              fontSize: "0.95rem",
-            }}
-          >
-            Durée: {session.heures}h
-          </p>
         </div>
 
         <div style={{ textAlign: "right" }}>

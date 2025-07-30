@@ -171,14 +171,6 @@ const Dashboard = () => {
                 borderRadius: "10px",
               }}
             >
-              <p
-                style={{
-                  fontWeight: "600",
-                  color: "#333",
-                }}
-              >
-                Total des heures: 15h (5h par session)
-              </p>
             </div>
           </div>
         </div>

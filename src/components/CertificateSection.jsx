@@ -36,21 +36,19 @@ const CertificateSection = ({ userData }) => {
     try {
       const token = localStorage.getItem("token")
 
-      console.log(token)
       // If Google Drive link exists, open it directly
       if (userData.lienCertificat) {
         window.open(userData.lienCertificat, "_blank")
         setDownloadMessage("Certificat ouvert dans un nouvel onglet!")
 
         // Mark as downloaded
-        const res = await api.post(
+        await api.post(
           "/api/certificate/mark-downloaded",
           { studentId: userData._id },
           {
             headers: { Authorization: `Bearer ${token}` },
           },
         )
-        console.log(res);
       } else {
         // Fallback to PDF generation
         const response = await api.post(
