@@ -132,8 +132,8 @@ const Dashboard = () => {
             className="btn btn-danger"
             style={{
               position: "absolute",
-              top: "30px",
-              right: "30px",
+              top: "0px",
+              left: "0px",
               fontSize: "14px",
               padding: "8px 16px",
               borderRadius: "8px",
@@ -163,15 +163,6 @@ const Dashboard = () => {
               <SessionCard key={session.id} session={session} />
             ))}
 
-            <div
-              style={{
-                marginTop: "20px",
-                padding: "15px",
-                background: "rgba(102, 126, 234, 0.1)",
-                borderRadius: "10px",
-              }}
-            >
-            </div>
           </div>
         </div>
 
