@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const Timer = ({ onTimeout, duration = 600 }) => { // 600 seconds = 10 minutes
+const Timer = ({ onTimeout, duration = 300 }) => { // 600 seconds = 10 minutes
   const [timeLeft, setTimeLeft] = useState(duration)
 
   useEffect(() => {
