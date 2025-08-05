@@ -37,14 +37,14 @@ api.interceptors.request.use(
     }
 
     // Log request for debugging
-    console.log(
-      `API Request: ${config.method?.toUpperCase()} ${config.baseURL}${config.url}`,
-    );
-
+    //console.log(
+    //  `API Request: ${config.method?.toUpperCase()} ${config.baseURL}${config.url}`,
+    //);
+    //
     return config;
   },
   (error) => {
-    console.error("Request interceptor error:", error);
+    //console.error("Request interceptor error:", error);
     return Promise.reject(error);
   },
 );
@@ -52,11 +52,11 @@ api.interceptors.request.use(
 // Response interceptor to handle errors
 api.interceptors.response.use(
   (response) => {
-    console.log(`API Response: ${response.status} ${response.config.url}`);
+    //console.log(`API Response: ${response.status} ${response.config.url}`);
     return response;
   },
   (error) => {
-    console.error("API Error:", error);
+    //console.error("API Error:", error);
 
     if (error.response?.status === 401) {
       // Token expired or invalid
@@ -67,7 +67,7 @@ api.interceptors.response.use(
 
     // Handle CORS errors
     if (error.code === "ERR_NETWORK" || !error.response) {
-      console.error("Network/CORS error detected");
+      //console.error("Network/CORS error detected");
     }
 
     return Promise.reject(error);
