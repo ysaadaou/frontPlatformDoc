@@ -131,7 +131,7 @@ const Login = () => {
               fontWeight: "600",
             }}
           >
-            Attestation Formation Doctorales
+            Attestation Formation Doctorale
           </h2>
           <p
             style={{
